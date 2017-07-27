@@ -1,4 +1,5 @@
 fs = require('fs')
+gameElements = require('./game_elements')
 
 module.exports.openFile = function (filepaths)
 {
@@ -14,5 +15,9 @@ module.exports.openFile = function (filepaths)
 
 function loadNewGame(json)
 {
-    console.log(json);
+    let map = new gameElements.Map(json['map name']);
+    let loc = new gameElements.Location(json['locations'][0]['name'])
+    map.AddLocation(loc)
+    console.log('=== MAP ===');
+    console.log(map);
 }

@@ -1,0 +1,32 @@
+{
+    "map name": "test map",
+    "locations":
+    [
+        {
+            "name": "test location",
+            "views": ["test view 1", "test view 2"]
+        }
+    ],
+    "views": 
+    [
+        {
+            "name": "test view 1",
+            "links": ["test link 2"]
+        },
+        {
+            "name": "test view 2",
+            "links": ["test link 1"]
+        }
+    ],
+    "links":
+    [
+        {
+            "name": "test link 1",
+            "destination": "test view 2"
+        },
+        {
+            "name": "test link 2",
+            "destination": "test view 1"
+        }
+    ]
+}
