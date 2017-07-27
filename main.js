@@ -4,13 +4,15 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
+const dialog = electron.dialog
+
 const path = require('path')
 const url = require('url')
 
 const AppMenu = require('./appmenu')
 
 let mainWindow = null
-let mainFullscreen = null
+
 let isFullscreen = false
 
 function createWindow (setFullscreen) {
@@ -39,21 +41,13 @@ function createWindow (setFullscreen) {
 			AppMenu.createMenuTemplate(handleMenuOpen, handleMenuSave, handleFullscreen, isFullscreen)));
 
 	if (isFullscreen)
-	{
-		if (mainWindow)
-			mainWindow.close();
-		mainWindow = null;
 		newWindow.setAutoHideMenuBar(true);
-		mainFullscreen = newWindow;
-	}
-	else
-	{
-		if (mainFullscreen)
-			mainFullscreen.close();
-		mainFullscreen = null;
-		mainWindow = newWindow;
-	}
-}
+
+	if (mainWindow)
+		mainWindow.close();
+
+	mainWindow = newWindow;
+};
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -92,10 +86,15 @@ function handleFullscreen()
 
 function handleMenuOpen()
 {
-
+	dialog.showOpenDialog(mainWindow, {properties: ['openFile']}, fileChosen);
 }
 
 function handleMenuSave()
 {
 
+}
+
+function fileChosen(filepath)
+{
+	console.log(filepath);
 }
