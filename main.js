@@ -10,6 +10,7 @@ const path = require('path')
 const url = require('url')
 
 const AppMenu = require('./appmenu')
+const FileIO = require('./fileio')
 
 let mainWindow = null
 
@@ -86,15 +87,10 @@ function handleFullscreen()
 
 function handleMenuOpen()
 {
-	dialog.showOpenDialog(mainWindow, {properties: ['openFile']}, fileChosen);
+	dialog.showOpenDialog(mainWindow, {properties: ['openFile']}, FileIO.openFile);
 }
 
 function handleMenuSave()
 {
 
-}
-
-function fileChosen(filepath)
-{
-	console.log(filepath);
 }
