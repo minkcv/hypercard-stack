@@ -1,3 +1,4 @@
-module.exports.Map = require('./map').Map;
-module.exports.Location = require('./location').Location;
-module.exports.Link = require('./link').Link;
+exports.Map = require('./map').Map;
+exports.Location = require('./location').Location;
+exports.Link = require('./link').Link;
+exports.View = require('./view').View;

@@ -1,7 +1,7 @@
 fs = require('fs')
 gameElements = require('./game_elements')
 
-module.exports.openFile = function (filepaths)
+exports.openFile = function (filepaths)
 {
     if (filepaths && filepaths[0].length > 0)
     {
@@ -16,8 +16,23 @@ module.exports.openFile = function (filepaths)
 function loadNewGame(json)
 {
     let map = new gameElements.Map(json['map name']);
-    let loc = new gameElements.Location(json['locations'][0]['name'])
-    map.AddLocation(loc)
+    for (let i = 0; i < json['locations'].length; i++)
+    {
+        let loc = new gameElements.Location(json['locations'][i]['name']);
+        map.AddLocation(loc);
+    }
+    for (let i = 0; i < json['views'].length; i++)
+    {
+        let view = new gameElements.View(json['views'][i]['name']);
+        let locname = "";
+        for (let j = 0; j < json['locations'].length; j++)
+        {
+            let views = json['locations'][j].views;
+            if (views.find(v => v === view.name))
+                locname = json['locations'][j].name;
+        }
+        map.GetLocation(locname).AddView(view);
+    }
     console.log('=== MAP ===');
     console.log(map);
 }

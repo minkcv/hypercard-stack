@@ -11,4 +11,9 @@ exports.Location = class
     {
         this.views.push(view);
     }
+
+    GetView(name)
+    {
+        return this.views.find(v => v.name === name);
+    }
 }

@@ -1,4 +1,5 @@
-const Location = require('./location.js')
+const Location = require('./location')
+const View = require('./view')
 
 exports.Map = class
 {
@@ -12,5 +13,10 @@ exports.Map = class
     AddLocation(location)
     {
         this.locations.push(location);
+    }
+
+    GetLocation(name)
+    {
+        return this.locations.find(l => l.name === name);
     }
 }
