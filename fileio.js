@@ -23,15 +23,17 @@ function loadNewGame(json)
     }
     for (let i = 0; i < json['views'].length; i++)
     {
-        let view = new gameElements.View(json['views'][i]['name']);
-        let locname = "";
-        for (let j = 0; j < json['locations'].length; j++)
-        {
-            let views = json['locations'][j].views;
-            if (views.find(v => v === view.name))
-                locname = json['locations'][j].name;
-        }
-        map.GetLocation(locname).AddView(view);
+        let viewData = json['views'][i];
+        let parentLoc = map.GetLocation(viewData['parentLocation']);
+        let view = new gameElements.View(viewData['name'], parentLoc);
+        parentLoc.AddView(view);
+    }
+    for (let i = 0; i < json['links'].length; i++)
+    {
+        let linkData = json['links'][i];
+        let parentView = map.GetView(linkData['parentView']);
+        let link = new gameElements.Link(linkData['name'], parentView);
+        parentView.AddLink(link);
     }
     console.log('=== MAP ===');
     console.log(map);

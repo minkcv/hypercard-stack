@@ -19,4 +19,14 @@ exports.Map = class
     {
         return this.locations.find(l => l.name === name);
     }
+    
+    GetView(name)
+    {
+        for (let i = 0; i < this.locations.length; i++)
+        {
+            let view = this.locations[i].GetView(name);
+            if (view)
+                return view;
+        }
+    }
 }

@@ -11,10 +11,12 @@
     [
         {
             "name": "test view 1",
+            "parentLocation": "test location",
             "links": ["test link 2"]
         },
         {
             "name": "test view 2",
+            "parentLocation": "test location",
             "links": ["test link 1"]
         }
     ],
@@ -22,10 +24,12 @@
     [
         {
             "name": "test link 1",
+            "parentView": "test view 1",
             "destination": "test view 2"
         },
         {
             "name": "test link 2",
+            "parentView": "test view 2",
             "destination": "test view 1"
         }
     ]
