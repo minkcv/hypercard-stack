@@ -1,5 +1,18 @@
 {
     "map name": "test map",
+    "state-machines":
+    [
+        {
+            "name": "player",
+            "currentState": "test view 1",
+            "states": 
+            [
+                "test view 1",
+                "test view 2"
+            ],
+            "transitions":
+        }
+    ],
     "locations":
     [
         {
