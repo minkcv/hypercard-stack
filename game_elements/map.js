@@ -7,7 +7,7 @@ exports.Map = class
     {
         this.name = name;
         this.locations = [];
-        this.statemachines =[];
+        this.stateMachines =[];
     }
 
     AddLocation(location)
@@ -28,5 +28,10 @@ exports.Map = class
             if (view)
                 return view;
         }
+    }
+
+    AddStateMachine(stateMachine)
+    {
+        this.stateMachines.push(stateMachine);
     }
 }

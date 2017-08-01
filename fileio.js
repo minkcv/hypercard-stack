@@ -15,11 +15,17 @@ exports.openFile = function (filepaths)
 
 function loadNewGame(json)
 {
-    let map = new gameElements.Map(json['map name']);
+    let map = new gameElements.Map(json['mapName']);
     for (let i = 0; i < json['locations'].length; i++)
     {
         let loc = new gameElements.Location(json['locations'][i]['name']);
         map.AddLocation(loc);
+    }
+    for (let i = 0; i < json['stateMachines'].length; i++)
+    {
+        let smData = json['stateMachines'][i];
+        let sm = new gameElements.StateMachine(smData['name'], smData['states'], smData['currentState'], smData['stateTransitions']);
+        map.AddStateMachine(sm);
     }
     for (let i = 0; i < json['views'].length; i++)
     {
@@ -37,4 +43,10 @@ function loadNewGame(json)
     }
     console.log('=== MAP ===');
     console.log(map);
+    console.log('=== STATE MACHINES ===')
+    console.log(map.stateMachines);
+    let playerView = map.stateMachines.find(s => s.name === "player view");
+    console.log("current view: " + playerView.currentState);
+    playerView.doTransition("change view 1");
+    console.log("current view: " + playerView.currentState);
 }

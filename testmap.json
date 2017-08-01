@@ -1,6 +1,6 @@
 {
-    "map name": "test map",
-    "state-machines":
+    "mapName": "test map",
+    "stateMachines":
     [
         {
             "name": "player view",
@@ -12,7 +12,7 @@
                 "test view 3",
                 "test view 4"
             ],
-            "state-transitions":
+            "stateTransitions":
             [
                 {
                     "stateName": "test view 1",
@@ -23,13 +23,15 @@
                 {
                     "stateName": "test view 2",
                     "transitions": [
-                        ["change view 1", "test view 1"]
+                        ["change view 1", "test view 4"],
+                        ["change view 2", "test view 1"]
                     ]
                 },
                 {
                     "stateName": "test view 3",
                     "transitions": [
-                        ["change view 1", "test view 4"]
+                        ["change view 1", "test view 1"],
+                        ["change view 2", "test view 4"]
                     ]
                 },
                 {
@@ -94,8 +96,18 @@
         },
         {
             "name": "test link 4",
-            "parentView": "test view 3",
+            "parentView": "test view 4",
             "transition": "change view 1"
+        },
+        {
+            "name": "test link 5",
+            "parentView": "test view 2",
+            "transition": "change view 2"
+        },
+        {
+            "name": "test link 6",
+            "parentView": "test view 3",
+            "transition": "change view 2"
         }
     ]
 }
