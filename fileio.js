@@ -28,7 +28,7 @@ function loadNewGame(json)
     {
         let viewData = json['views'][i];
         let parentLoc = map.GetLocation(viewData['parentLocation']);
-        let view = new gameElements.View(viewData['name'], parentLoc);
+        let view = new gameElements.View(viewData['name'], parentLoc, viewData['background']);
         parentLoc.AddView(view);
     }
     for (let i = 0; i < json['links'].length; i++)
@@ -40,6 +40,8 @@ function loadNewGame(json)
     }
     console.log('=== MAP ===');
     console.log(map);
+    console.log('=== VIEWS ===')
+    map.locations.forEach(l => console.log(l.views));
     console.log('=== STATE MACHINES ===')
     console.log(map.stateMachines);
     let playerView = map.stateMachines.find(s => s.name === "player view");

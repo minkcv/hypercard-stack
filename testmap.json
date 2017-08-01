@@ -4,7 +4,7 @@
     [
         {
             "name": "player view",
-            "currentState": "test view 3",
+            "currentState": "test view 1",
             "states": 
             [
                 "test view 1",
@@ -59,7 +59,8 @@
         {
             "name": "test view 1",
             "parentLocation": "test location 1",
-            "links": ["test link 2"]
+            "links": ["test link 2"],
+            "background": "its-over.jpg"
         },
         {
             "name": "test view 2",
