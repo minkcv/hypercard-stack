@@ -11,10 +11,13 @@ const url = require('url')
 
 const AppMenu = require('./appmenu')
 const FileIO = require('./fileio')
+const Game = require('./game').Game;
 
 let mainWindow = null
 
 let isFullscreen = false
+
+let game = null
 
 function createWindow (setFullscreen) {
 	isFullscreen = setFullscreen;
@@ -87,7 +90,8 @@ function handleFullscreen()
 
 function handleMenuOpen()
 {
-	dialog.showOpenDialog(mainWindow, {properties: ['openFile']}, FileIO.openFile);
+	let filePaths = dialog.showOpenDialog(mainWindow, {properties: ['openFile']});
+	game = new Game(FileIO.openFile(filePaths[0]));
 }
 
 function handleMenuSave()
