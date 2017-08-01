@@ -2,11 +2,11 @@
 
 exports.Link = class
 {
-    constructor(name, parentView)
+    constructor(name, parentView, transition)
     {
         this.name = name;
         this.parentView = parentView;
-        this.destView = null;
+        this.transition = transition;
         this.media = null;
     }
 }

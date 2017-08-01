@@ -32,7 +32,7 @@ function loadNewGame(json)
     {
         let linkData = json['links'][i];
         let parentView = map.GetView(linkData['parentView']);
-        let link = new gameElements.Link(linkData['name'], parentView);
+        let link = new gameElements.Link(linkData['name'], parentView, linkData['transition']);
         parentView.AddLink(link);
     }
     console.log('=== MAP ===');
