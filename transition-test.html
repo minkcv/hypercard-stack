@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Transition Test</title>
+    <style>
+        #main_container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            heigh: auto;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+        #but_replay {
+            position:absolute;
+            bottom:0px;
+            right:0px;
+            width:200px;
+            height:200px;
+        }
+        #but_return {
+           position:absolute;
+            bottom:0px;
+            left:0px;
+            width:200px;
+            height:200px; 
+        }
+        button
+        {
+            background: transparent;
+            border: black 1px;
+            color:transparent;
+        }
+
+    </style>
+  </head>
+    <div id="main_container">
+        <video src="test.mp4" id="test_vid" autoplay onclick="endCutscene()">
+            Video tag not supported!
+        </video>
+        <div id="img_container">
+            <img src="its-over.jpg" id="main_image" style="display:none; width:100%"/>
+            <button id="but_replay" type="button" onclick="replay()">Replay</button>
+            <button id="but_return" type="button" onclick="window.location='index.html'">Return</button>
+        </div>
+    </div>
+  </body>
+
+  <script type='text/javascript'>
+    document.getElementById('test_vid').addEventListener('ended', endCutscene, false);
+    function endCutscene(e) {
+        document.getElementById('test_vid').style.display = "none";
+        document.getElementById('main_image').style.display = "block";
+    }
+    function replay() {
+        document.getElementById('test_vid').style.display = "block";
+        document.getElementById('main_image').style.display = "none";
+        document.getElementById('test_vid').Play();
+    }
+  </script>
+</html>
