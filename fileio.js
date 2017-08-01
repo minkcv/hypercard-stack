@@ -1,15 +1,12 @@
 fs = require('fs')
 gameElements = require('./game_elements')
 
-exports.openFile = function (filepaths)
+exports.openFile = function (filepath)
 {
-    if (filepaths && filepaths[0].length > 0)
+    if (filepath && filepath.length > 0)
     {
-        fs.readFile(filepaths[0], null, (err, data) =>
-        {
-            if (err) { return console.log(err) };
-            loadNewGame(JSON.parse(data));
-        });
+        let data = fs.readFileSync(filepath, null)
+        return loadNewGame(JSON.parse(data));
     }
 }
 
@@ -49,4 +46,5 @@ function loadNewGame(json)
     console.log("current view: " + playerView.currentState);
     playerView.doTransition("change view 1");
     console.log("current view: " + playerView.currentState);
+    return map;
 }
