@@ -12,7 +12,7 @@ exports.openFile = function (filepath)
 
 function loadNewGame(json)
 {
-    let map = new gameElements.Map(json['mapName']);
+    let map = new gameElements.Map(json['mapName'], json['aspectRatio']);
     for (let i = 0; i < json['locations'].length; i++)
     {
         let loc = new gameElements.Location(json['locations'][i]['name']);
@@ -44,9 +44,5 @@ function loadNewGame(json)
     map.locations.forEach(l => console.log(l.views));
     console.log('=== STATE MACHINES ===')
     console.log(map.stateMachines);
-    let playerView = map.stateMachines.find(s => s.name === "player view");
-    console.log("current view: " + playerView.currentState);
-    playerView.doTransition("change view 1");
-    console.log("current view: " + playerView.currentState);
     return map;
 }

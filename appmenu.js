@@ -22,6 +22,7 @@ module.exports =
                 label: 'View',
                 submenu:
                 [
+                    { role: 'toggledevtools' },
                     { click: handleFullscreen, label: fullscreenLabel }
                 ]
             }

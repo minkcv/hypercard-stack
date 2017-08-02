@@ -6,4 +6,9 @@ exports.Game = class
     {
         this.map = map;
     }
+
+    testMethod()
+    {
+        console.log('game test method');
+    }
 }

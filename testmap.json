@@ -1,5 +1,6 @@
 {
     "mapName": "test map",
+    "aspectRatio": "4:3",
     "stateMachines":
     [
         {

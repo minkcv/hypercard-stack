@@ -32,7 +32,7 @@ function createWindow (setFullscreen) {
 	}));
 
 	// Open the DevTools.
-	// mainWindow.webContents.openDevTools()
+	newWindow.webContents.openDevTools()
 
 	// Emitted when the window is closed.
 	newWindow.on('closed', function () {
@@ -91,7 +91,18 @@ function handleFullscreen()
 function handleMenuOpen()
 {
 	let filePaths = dialog.showOpenDialog(mainWindow, {properties: ['openFile']});
+	if (!filePaths || filePaths.length < 1)
+		return;
+	
 	game = new Game(FileIO.openFile(filePaths[0]));
+	global.game = game; // How we pass things to the renderer process
+
+	// Reload the page
+	mainWindow.loadURL(url.format({
+		pathname: path.join(__dirname, 'index.html'),
+		protocol: 'file:',
+		slashes: true
+	}));
 }
 
 function handleMenuSave()
