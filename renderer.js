@@ -5,6 +5,7 @@ const electron = require('electron');
 let game = electron.remote.getGlobal('game');
 if (game)
 {
+    /*
     let currentViewName = game.map.GetStateMachine('player view').currentState;
     let view = game.map.GetView(currentViewName);
     document.body.style.margin = 0;
@@ -15,4 +16,5 @@ if (game)
     bg.src = view.background;
     bg.style.backgroundSize = 'contain';
     container.appendChild(bg);
+    */
 }

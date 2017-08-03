@@ -3,10 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>Hyper-Card Stack</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div id='crop-container'>
-
+            <!-- Cutscene Video -->
+            <div id='video-container' class='hide-on'>
+                <video id='trans-video'></video>
+            </div>
+            <!-- Scene Elements -->
+            <div id='display-container' class='hide-off'>
+                <img id='background-img' src='its-over.jpg' />
+                <!-- Buttons, overlays go here -->
+            </div>
         </div>
         <script>
             require('./renderer.js')
