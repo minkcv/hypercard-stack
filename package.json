@@ -1,7 +1,7 @@
 {
   "name": "test-app",
   "version": "1.0.0",
-  "description": "A test Electron application",
+  "description": "A hypercard stack",
   "main": "main.js",
   "scripts": {
     "start": "electron ."

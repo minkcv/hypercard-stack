@@ -12,7 +12,7 @@ exports.openFile = function (filepath)
 
 function loadNewGame(json)
 {
-    let map = new gameElements.Map(json['mapName'], json['aspectRatio']);
+    let map = new gameElements.Map(json['mapName'], json['folderName']);
     for (let i = 0; i < json['locations'].length; i++)
     {
         let loc = new gameElements.Location(json['locations'][i]['name']);
@@ -28,14 +28,14 @@ function loadNewGame(json)
     {
         let viewData = json['views'][i];
         let parentLoc = map.GetLocation(viewData['parentLocation']);
-        let view = new gameElements.View(viewData['name'], parentLoc, viewData['background']);
+        let view = new gameElements.View(viewData['name'], parentLoc, map.folderName + viewData['background']);
         parentLoc.AddView(view);
     }
     for (let i = 0; i < json['links'].length; i++)
     {
         let linkData = json['links'][i];
         let parentView = map.GetView(linkData['parentView']);
-        let link = new gameElements.Link(linkData['name'], parentView, linkData['transition']);
+        let link = new gameElements.Link(linkData['name'], parentView, linkData['transition'], linkData['position'], linkData['size']);
         parentView.AddLink(link);
     }
     console.log('=== MAP ===');

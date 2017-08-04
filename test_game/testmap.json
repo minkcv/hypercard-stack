@@ -1,6 +1,6 @@
 {
     "mapName": "test map",
-    "aspectRatio": "4:3",
+    "folderName": "test_game/",
     "stateMachines":
     [
         {
@@ -66,17 +66,20 @@
         {
             "name": "test view 2",
             "parentLocation": "test location 1",
-            "links": ["test link 1"]
+            "links": ["test link 1"],
+            "background": "its-over.jpg"
         },
         {
             "name": "test view 3",
             "parentLocation": "test location 2",
-            "links": ["test link 4"]
+            "links": ["test link 4"],
+            "background": "its-over.jpg"
         },
         {
             "name": "test view 4",
             "parentLocation": "test location 2",
-            "links": ["test link 3"]
+            "links": ["test link 3"],
+            "background": "its-over.jpg"
         }
     ],
     "links":
@@ -84,32 +87,44 @@
         {
             "name": "test link 1",
             "parentView": "test view 1",
-            "transition": "change view 1"
+            "transition": "change view 1",
+            "position": ["20", "20"],
+            "size": ["10", "10"]
         },
         {
             "name": "test link 2",
             "parentView": "test view 2",
-            "transition": "change view 1"
+            "transition": "change view 1",
+            "position": ["10", "10"],
+            "size": ["10", "10"]
         },
         {
             "name": "test link 3",
             "parentView": "test view 3",
-            "transition": "change view 1"
+            "transition": "change view 1",
+            "position": ["10", "10"],
+            "size": ["10", "10"]
         },
         {
             "name": "test link 4",
             "parentView": "test view 4",
-            "transition": "change view 1"
+            "transition": "change view 1",
+            "position": ["10", "10"],
+            "size": ["10", "10"]
         },
         {
             "name": "test link 5",
             "parentView": "test view 2",
-            "transition": "change view 2"
+            "transition": "change view 2",
+            "position": ["10", "10"],
+            "size": ["10", "10"]
         },
         {
             "name": "test link 6",
             "parentView": "test view 3",
-            "transition": "change view 2"
+            "transition": "change view 2",
+            "position": ["10", "10"],
+            "size": ["10", "10"]
         }
     ]
 }

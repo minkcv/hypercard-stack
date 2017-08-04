@@ -1,14 +1,15 @@
+// Electron requires
 const electron = require('electron')
-// Module to control application life.
 const app = electron.app
-// Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
-
 const dialog = electron.dialog
 
+// Other node requires
 const path = require('path')
 const url = require('url')
+const deboucne = require('debounce')
 
+// 
 const AppMenu = require('./appmenu')
 const FileIO = require('./fileio')
 const Game = require('./game').Game;
@@ -34,9 +35,9 @@ function createWindow (setFullscreen) {
 	// Open the DevTools.
 	newWindow.webContents.openDevTools()
 
-	// Emitted when the window is closed.
-	newWindow.on('closed', function () {
-
+	newWindow.on('resize', function () {
+		if (game)
+			game.reRender();
 	});
 
 	// Set up the native menu.
@@ -74,18 +75,13 @@ app.on('window-all-closed', function () {
 	}
 })
 
-app.on('activate', function () {
-	// On OS X it's common to re-create a window in the app when the
-	// dock icon is clicked and there are no other windows open.
-	// But I don't care.
-})
-
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
 function handleFullscreen()
 {
 	createWindow(!isFullscreen); // Toggle full / windowed
+	game.window = mainWindow;
 }
 
 function handleMenuOpen()
@@ -94,7 +90,7 @@ function handleMenuOpen()
 	if (!filePaths || filePaths.length < 1)
 		return;
 	
-	game = new Game(FileIO.openFile(filePaths[0]));
+	game = new Game(FileIO.openFile(filePaths[0]), mainWindow);
 	global.game = game; // How we pass things to the renderer process
 
 	// Reload the page

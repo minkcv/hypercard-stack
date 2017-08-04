@@ -1,23 +1,14 @@
-#crop-container {
-    position: relative;
-    width:100%;
-    padding-bottom:56.25%;
-    background-color: red;
+body {
+    margin: 0px;
+    overflow: hidden;
 }
 
-#crop-container > div {
+.link {
     position: absolute;
-    top: 0; bottom: 0; left:0; right:0;
 }
 
 .hide-off{
-    width:100%;
-}
-
-#background-img {
-    width:100%;
-    height:100%;
-    object-fit: contain;
+    display: block;
 }
 
 .hide-on {

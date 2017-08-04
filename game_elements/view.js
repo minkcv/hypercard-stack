@@ -1,3 +1,4 @@
+const sizeOf = require('image-size');
 
 exports.View = class
 {
@@ -7,6 +8,7 @@ exports.View = class
         this.parentLocation = parentLocation;
         this.links = [];
         this.background = background;
+        this.imageSize = sizeOf(background);
     }
     
     AddLink(link)
