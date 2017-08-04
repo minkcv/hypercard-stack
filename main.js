@@ -7,7 +7,7 @@ const dialog = electron.dialog
 // Other node requires
 const path = require('path')
 const url = require('url')
-const deboucne = require('debounce')
+const debounce = require('debounce')
 
 // 
 const AppMenu = require('./appmenu')
@@ -33,12 +33,12 @@ function createWindow (setFullscreen) {
 	}));
 
 	// Open the DevTools.
-	newWindow.webContents.openDevTools()
+	// newWindow.webContents.openDevTools()
 
-	newWindow.on('resize', function () {
+	newWindow.on('resize', debounce(function () {
 		if (game)
 			game.reRender();
-	});
+	}, 250));
 
 	// Set up the native menu.
 	electron.Menu.setApplicationMenu(
