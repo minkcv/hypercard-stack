@@ -12,6 +12,7 @@
   ],
   "author": "minkcv",
   "devDependencies": {
-    "electron": "^1.6.11"
+    "electron": "^1.6.11",
+    "debounce": "^1.0.2"
   }
 }
