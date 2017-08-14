@@ -1,0 +1,596 @@
+{
+  "mapName": "Test Map 2",
+  "folderName": "test_game/",
+  "stateMachines": [
+    {
+      "name": "player view",
+      "currentState": "1_1_N",
+      "states":
+      [
+        "1_1_N",
+        "1_1_E",
+        "1_1_S",  
+        "1_1_W",
+        "1_2_N",
+        "1_2_E",
+        "1_2_S",  
+        "1_2_W",
+        "2_1_N",
+        "2_1_E",
+        "2_1_S",  
+        "2_1_W",
+        "2_2_N",
+        "2_2_E",
+        "2_2_S",  
+        "2_2_W"
+      ],
+      "stateTransitions":
+      [
+       {
+         "stateName": "1_1_N",
+         "transitions": [
+            ["1_1_N_F", "1_2_N"],
+            ["1_1_N_L", "1_1_W"],
+            ["1_1_N_R", "1_1_E"]
+          ]
+       },
+       {
+         "stateName": "1_1_E",
+         "transitions": [
+            ["1_1_E_F", "2_1_E"],
+            ["1_1_E_L", "1_1_N"],
+            ["1_1_E_R", "1_1_S"]
+          ]
+       },
+       {
+         "stateName": "1_1_S",
+         "transitions": [
+            ["1_1_S_L", "1_1_E"],
+            ["1_1_S_R", "1_1_W"]
+          ]
+       },
+       {
+         "stateName": "1_1_W",
+         "transitions": [
+            ["1_1_W_L", "1_1_S"],
+            ["1_1_W_R", "1_1_N"]
+          ]
+       },
+       
+       {
+         "stateName": "1_2_N",
+         "transitions": [
+            ["1_2_N_L", "1_2_W"],
+            ["1_2_N_R", "1_2_E"]
+          ]
+       },
+       {
+         "stateName": "1_2_E",
+         "transitions": [
+            ["1_2_E_F", "2_2_E"],
+            ["1_2_E_L", "1_2_N"],
+            ["1_2_E_R", "1_2_S"]
+          ]
+       },
+       {
+         "stateName": "1_2_S",
+         "transitions": [
+            ["1_2_S_F", "1_1_S"],
+            ["1_2_S_L", "1_2_E"],
+            ["1_2_S_R", "1_2_W"]
+          ]
+       },
+       {
+         "stateName": "1_2_W",
+         "transitions": [
+            ["1_2_W_L", "1_2_S"],
+            ["1_2_W_R", "1_2_N"]
+          ]
+       },
+       
+       {
+         "stateName": "2_2_N",
+         "transitions": [
+            ["2_2_N_L", "2_2_W"],
+            ["2_2_N_R", "2_2_E"]
+          ]
+       },
+       {
+         "stateName": "2_2_E",
+         "transitions": [
+            ["2_2_E_L", "2_2_N"],
+            ["2_2_E_R", "2_2_S"]
+          ]
+       },
+       {
+         "stateName": "2_2_S",
+         "transitions": [
+            ["2_2_S_F", "2_1_S"],
+            ["2_2_S_L", "2_2_E"],
+            ["2_2_S_R", "2_2_W"]
+          ]
+       },
+       {
+         "stateName": "2_2_W",
+         "transitions": [
+            ["2_2_W_F", "1_2_W"],
+            ["1_2_W_L", "2_2_S"],
+            ["1_2_W_R", "2_2_N"]
+          ]
+       },
+       
+       {
+         "stateName": "2_1_N",
+         "transitions": [
+            ["2_1_N_F", "2_2_N"],
+            ["2_1_N_L", "2_1_W"],
+            ["2_1_N_R", "2_1_E"]
+          ]
+       },
+       {
+         "stateName": "2_1_E",
+         "transitions": [
+            ["2_1_E_L", "2_1_N"],
+            ["2_1_E_R", "2_1_S"]
+          ]
+       },
+       {
+         "stateName": "2_1_S",
+         "transitions": [
+            ["2_1_S_L", "2_1_E"],
+            ["2_1_S_R", "2_1_W"]
+          ]
+       },
+       {
+         "stateName": "2_1_W",
+         "transitions": [
+            ["2_1_W_F", "1_1_W"],
+            ["2_1_W_L", "2_1_S"],
+            ["2_1_W_R", "2_1_N"]
+          ]
+       }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "Location 1 1",
+      "views": [
+        "View_1_1_N",
+        "View_1_1_S",
+        "View_1_1_E",
+        "View_1_1_W"
+      ]
+    },
+    {
+      "name": "Location 1 2",
+      "views": [
+        "View_1_2_N",
+        "View_1_2_S",
+        "View_1_2_E",
+        "View_1_2_W"
+      ]
+    },
+    {
+      "name": "Location 2 1",
+      "views": [
+        "View_2_1_N",
+        "View_2_1_S",
+        "View_2_1_E",
+        "View_2_1_W"
+      ]
+    },
+    {
+      "name": "Location 2 2",
+      "views": [
+        "View_2_2_N",
+        "View_2_2_S",
+        "View_2_2_E",
+        "View_2_2_W"
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "View_1_1_N",
+      "parentLocation": "Location 1 1",
+      "links": [
+        "Link_1_1_N_Left",
+        "Link_1_1_N_Right",
+        "Link_1_1_N_Forward"
+      ],
+      "background": "location1/view2.png"
+    },
+    {
+      "name": "View_1_1_E",
+      "parentLocation": "Location 1 1",
+      "links": [
+        "Link_1_1_E_Left",
+        "Link_1_1_E_Right",
+        "Link_1_1_E_Forward"
+      ],
+      "background": "location1/view3.png"
+    },
+    {
+      "name": "View_1_1_S",
+      "parentLocation": "Location 1 1",
+      "links": [
+        "Link_1_1_S_Left",
+        "Link_1_1_S_Right"
+      ],
+      "background": "location1/view4.png"
+    },
+    {
+      "name": "View_1_1_W",
+      "parentLocation": "Location 1 1",
+      "links": [
+        "Link_1_1_W_Left",
+        "Link_1_1_W_Right"
+      ],
+      "background": "location1/view1.png"
+    },
+    {
+      "name": "View_1_2_N",
+      "parentLocation": "Location 1 2",
+      "links": [
+        "Link_1_2_N_Left",
+        "Link_1_2_N_Right"
+      ],
+      "background": "location2/view3.png"
+    },
+    {
+      "name": "View_1_2_E",
+      "parentLocation": "Location 1 2",
+      "links": [
+        "Link_1_2_E_Left",
+        "Link_1_2_E_Right",
+        "Link_1_2_E_Forward"
+      ],
+      "background": "location2/view4.png"
+    },
+    {
+      "name": "View_1_2_S",
+      "parentLocation": "Location 1 2",
+      "links": [
+        "Link_1_2_S_Left",
+        "Link_1_2_S_Right",
+        "Link_1_2_S_Forward"
+      ],
+      "background": "location2/view1.png"
+    },
+    {
+      "name": "View_1_2_W",
+      "parentLocation": "Location 1 2",
+      "links": [
+        "Link_1_2_W_Left",
+        "Link_1_2_W_Right"
+      ],
+      "background": "location2/view2.png"
+    },
+    {
+      "name": "View_2_1_N",
+      "parentLocation": "Location 2 1",
+      "links": [
+        "Link_2_1_N_Left",
+        "Link_2_1_N_Right",
+        "Link_2_1_N_Forward"
+      ],
+      "background": "location4/view3.png"
+    },
+    {
+      "name": "View_2_1_E",
+      "parentLocation": "Location 2 1",
+      "links": [
+        "Link_2_1_E_Left",
+        "Link_2_1_E_Right"
+      ],
+      "background": "location4/view4.png"
+    },
+    {
+      "name": "View_2_1_S",
+      "parentLocation": "Location 2 1",
+      "links": [
+        "Link_2_1_S_Left",
+        "Link_2_1_S_Right"
+      ],
+      "background": "location4/view1.png"
+    },
+    {
+      "name": "View_2_1_W",
+      "parentLocation": "Location 2 1",
+      "links": [
+        "Link_2_1_W_Left",
+        "Link_2_1_W_Right",
+        "Link_2_1_W_Forward"
+      ],
+      "background": "location4/view2.png"
+    },
+    {
+      "name": "View_2_2_N",
+      "parentLocation": "Location 2 2",
+      "links": [
+        "Link_2_2_N_Left",
+        "Link_2_2_N_Right"
+      ],
+      "background": "location3/view1.png"
+    },
+    {
+      "name": "View_2_2_E",
+      "parentLocation": "Location 2 2",
+      "links": [
+        "Link_2_2_E_Left",
+        "Link_2_2_E_Right"
+      ],
+      "background": "location3/view4.png"
+    },
+    {
+      "name": "View_2_2_S",
+      "parentLocation": "Location 2 2",
+      "links": [
+        "Link_2_2_S_Left",
+        "Link_2_2_S_Right",
+        "Link_2_2_S_Forward"
+      ],
+      "background": "location3/view3.png"
+    },
+    {
+      "name": "View_2_2_W",
+      "parentLocation": "Location 2 2",
+      "links": [
+        "Link_2_2_W_Left",
+        "Link_2_2_W_Right",
+        "Link_2_2_W_Forward"
+      ],
+      "background": "location3/view2.png"
+    }
+  ],
+  "links":
+  [
+    {
+      "name": "Link_1_1_N_F",
+      "parentView": "View_1_1_N",
+      "transition": "1_1_N_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_1_1_E_F",
+      "parentView": "View_1_1_E",
+      "transition": "1_1_E_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_1_1_N_L",
+      "parentView": "View_1_1_N",
+      "transition": "1_1_N_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_1_N_R",
+      "parentView": "View_1_1_N",
+      "transition": "1_1_N_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_1_E_L",
+      "parentView": "View_1_1_E",
+      "transition": "1_1_E_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_1_E_R",
+      "parentView": "View_1_1_E",
+      "transition": "1_1_E_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_1_S_L",
+      "parentView": "View_1_1_S",
+      "transition": "1_1_E_S",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_1_S_R",
+      "parentView": "View_1_1_S",
+      "transition": "1_1_S_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_1_W_L",
+      "parentView": "View_1_1_W",
+      "transition": "1_1_W_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_1_W_R",
+      "parentView": "View_1_1_W",
+      "transition": "1_1_W_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    
+    
+    {
+      "name": "Link_1_2_E_F",
+      "parentView": "View_1_2_E",
+      "transition": "1_2_E_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_1_2_S_F",
+      "parentView": "View_1_2_S",
+      "transition": "1_2_S_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_1_2_N_L",
+      "parentView": "View_1_2_N",
+      "transition": "1_2_N_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_2_N_R",
+      "parentView": "View_1_2_N",
+      "transition": "1_2_N_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_2_E_L",
+      "parentView": "View_1_2_E",
+      "transition": "1_2_E_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_2_E_R",
+      "parentView": "View_1_2_E",
+      "transition": "1_2_E_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_2_S_L",
+      "parentView": "View_1_2_S",
+      "transition": "1_2_E_S",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_2_S_R",
+      "parentView": "View_1_2_S",
+      "transition": "1_2_S_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_2_W_L",
+      "parentView": "View_1_2_W",
+      "transition": "1_2_W_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_1_2_W_R",
+      "parentView": "View_1_2_W",
+      "transition": "1_2_W_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    
+    
+    {
+      "name": "Link_2_1_N_F",
+      "parentView": "View_2_1_N",
+      "transition": "2_1_N_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_2_1_W_F",
+      "parentView": "View_2_1_W",
+      "transition": "2_1_W_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_2_1_N_L",
+      "parentView": "View_2_1_N",
+      "transition": "2_1_N_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_1_N_R",
+      "parentView": "View_2_1_N",
+      "transition": "2_1_N_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_1_E_L",
+      "parentView": "View_2_1_E",
+      "transition": "2_1_E_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_1_E_R",
+      "parentView": "View_2_1_E",
+      "transition": "2_1_E_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_1_S_L",
+      "parentView": "View_2_1_S",
+      "transition": "2_1_E_S",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_1_S_R",
+      "parentView": "View_2_1_S",
+      "transition": "2_1_S_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_1_W_L",
+      "parentView": "View_2_1_W",
+      "transition": "2_1_W_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_1_W_R",
+      "parentView": "View_2_1_W",
+      "transition": "2_1_W_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    
+    
+    {
+      "name": "Link_2_2_S_F",
+      "parentView": "View_2_2_S",
+      "transition": "2_1_S_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_2_2_W_F",
+      "parentView": "View_2_2_W",
+      "transition": "2_2_W_F",
+      "position": ["120", "10", "560", "280"]
+    },
+    {
+      "name": "Link_2_2_N_L",
+      "parentView": "View_2_2_N",
+      "transition": "2_2_N_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_2_N_R",
+      "parentView": "View_2_2_N",
+      "transition": "2_2_N_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_2_E_L",
+      "parentView": "View_2_2_E",
+      "transition": "2_2_E_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_2_E_R",
+      "parentView": "View_2_2_E",
+      "transition": "2_2_E_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_2_S_L",
+      "parentView": "View_2_2_S",
+      "transition": "2_2_E_S",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_2_S_R",
+      "parentView": "View_2_2_S",
+      "transition": "2_2_S_R",
+      "position": ["690", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_2_W_L",
+      "parentView": "View_2_2_W",
+      "transition": "2_2_W_L",
+      "position": ["10", "10", "100", "580"]
+    },
+    {
+      "name": "Link_2_2_W_R",
+      "parentView": "View_2_2_W",
+      "transition": "2_2_W_R",
+      "position": ["690", "10", "100", "580"]
+    }
+  ]
+}
