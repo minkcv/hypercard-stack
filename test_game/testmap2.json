@@ -4,149 +4,149 @@
   "stateMachines": [
     {
       "name": "player view",
-      "currentState": "1_1_N",
+      "currentState": "View_1_1_N",
       "states":
       [
-        "1_1_N",
-        "1_1_E",
-        "1_1_S",  
-        "1_1_W",
-        "1_2_N",
-        "1_2_E",
-        "1_2_S",  
-        "1_2_W",
-        "2_1_N",
-        "2_1_E",
-        "2_1_S",  
-        "2_1_W",
-        "2_2_N",
-        "2_2_E",
-        "2_2_S",  
-        "2_2_W"
+        "View_1_1_N",
+        "View_1_1_E",
+        "View_1_1_S",  
+        "View_1_1_W",
+        "View_1_2_N",
+        "View_1_2_E",
+        "View_1_2_S",  
+        "View_1_2_W",
+        "View_2_1_N",
+        "View_2_1_E",
+        "View_2_1_S",  
+        "View_2_1_W",
+        "View_2_2_N",
+        "View_2_2_E",
+        "View_2_2_S",  
+        "View_2_2_W"
       ],
       "stateTransitions":
       [
        {
-         "stateName": "1_1_N",
+         "stateName": "View_1_1_N",
          "transitions": [
-            ["1_1_N_F", "1_2_N"],
-            ["1_1_N_L", "1_1_W"],
-            ["1_1_N_R", "1_1_E"]
+            ["1_1_N_F", "View_1_2_N"],
+            ["1_1_N_L", "View_1_1_W"],
+            ["1_1_N_R", "View_1_1_E"]
           ]
        },
        {
-         "stateName": "1_1_E",
+         "stateName": "View_1_1_E",
          "transitions": [
-            ["1_1_E_F", "2_1_E"],
-            ["1_1_E_L", "1_1_N"],
-            ["1_1_E_R", "1_1_S"]
+            ["1_1_E_F", "View_2_1_E"],
+            ["1_1_E_L", "View_1_1_N"],
+            ["1_1_E_R", "View_1_1_S"]
           ]
        },
        {
-         "stateName": "1_1_S",
+         "stateName": "View_1_1_S",
          "transitions": [
-            ["1_1_S_L", "1_1_E"],
-            ["1_1_S_R", "1_1_W"]
+            ["1_1_S_L", "View_1_1_E"],
+            ["1_1_S_R", "View_1_1_W"]
           ]
        },
        {
-         "stateName": "1_1_W",
+         "stateName": "View_1_1_W",
          "transitions": [
-            ["1_1_W_L", "1_1_S"],
-            ["1_1_W_R", "1_1_N"]
-          ]
-       },
-       
-       {
-         "stateName": "1_2_N",
-         "transitions": [
-            ["1_2_N_L", "1_2_W"],
-            ["1_2_N_R", "1_2_E"]
-          ]
-       },
-       {
-         "stateName": "1_2_E",
-         "transitions": [
-            ["1_2_E_F", "2_2_E"],
-            ["1_2_E_L", "1_2_N"],
-            ["1_2_E_R", "1_2_S"]
-          ]
-       },
-       {
-         "stateName": "1_2_S",
-         "transitions": [
-            ["1_2_S_F", "1_1_S"],
-            ["1_2_S_L", "1_2_E"],
-            ["1_2_S_R", "1_2_W"]
-          ]
-       },
-       {
-         "stateName": "1_2_W",
-         "transitions": [
-            ["1_2_W_L", "1_2_S"],
-            ["1_2_W_R", "1_2_N"]
+            ["1_1_W_L", "View_1_1_S"],
+            ["1_1_W_R", "View_1_1_N"]
           ]
        },
        
        {
-         "stateName": "2_2_N",
+         "stateName": "View_1_2_N",
          "transitions": [
-            ["2_2_N_L", "2_2_W"],
-            ["2_2_N_R", "2_2_E"]
+            ["1_2_N_L", "View_1_2_W"],
+            ["1_2_N_R", "View_1_2_E"]
           ]
        },
        {
-         "stateName": "2_2_E",
+         "stateName": "View_1_2_E",
          "transitions": [
-            ["2_2_E_L", "2_2_N"],
-            ["2_2_E_R", "2_2_S"]
+            ["1_2_E_F", "View_2_2_E"],
+            ["1_2_E_L", "View_1_2_N"],
+            ["1_2_E_R", "View_1_2_S"]
           ]
        },
        {
-         "stateName": "2_2_S",
+         "stateName": "View_1_2_S",
          "transitions": [
-            ["2_2_S_F", "2_1_S"],
-            ["2_2_S_L", "2_2_E"],
-            ["2_2_S_R", "2_2_W"]
+            ["1_2_S_F", "View_1_1_S"],
+            ["1_2_S_L", "View_1_2_E"],
+            ["1_2_S_R", "View_1_2_W"]
           ]
        },
        {
-         "stateName": "2_2_W",
+         "stateName": "View_1_2_W",
          "transitions": [
-            ["2_2_W_F", "1_2_W"],
-            ["1_2_W_L", "2_2_S"],
-            ["1_2_W_R", "2_2_N"]
+            ["1_2_W_L", "View_1_2_S"],
+            ["1_2_W_R", "View_1_2_N"]
           ]
        },
        
        {
-         "stateName": "2_1_N",
+         "stateName": "View_2_2_N",
          "transitions": [
-            ["2_1_N_F", "2_2_N"],
-            ["2_1_N_L", "2_1_W"],
-            ["2_1_N_R", "2_1_E"]
+            ["2_2_N_L", "View_2_2_W"],
+            ["2_2_N_R", "View_2_2_E"]
           ]
        },
        {
-         "stateName": "2_1_E",
+         "stateName": "View_2_2_E",
          "transitions": [
-            ["2_1_E_L", "2_1_N"],
-            ["2_1_E_R", "2_1_S"]
+            ["2_2_E_L", "View_2_2_N"],
+            ["2_2_E_R", "View_2_2_S"]
           ]
        },
        {
-         "stateName": "2_1_S",
+         "stateName": "View_2_2_S",
          "transitions": [
-            ["2_1_S_L", "2_1_E"],
-            ["2_1_S_R", "2_1_W"]
+            ["2_2_S_F", "View_2_1_S"],
+            ["2_2_S_L", "View_2_2_E"],
+            ["2_2_S_R", "View_2_2_W"]
           ]
        },
        {
-         "stateName": "2_1_W",
+         "stateName": "View_2_2_W",
          "transitions": [
-            ["2_1_W_F", "1_1_W"],
-            ["2_1_W_L", "2_1_S"],
-            ["2_1_W_R", "2_1_N"]
+            ["2_2_W_F", "View_1_2_W"],
+            ["1_2_W_L", "View_2_2_S"],
+            ["1_2_W_R", "View_2_2_N"]
+          ]
+       },
+       
+       {
+         "stateName": "View_2_1_N",
+         "transitions": [
+            ["2_1_N_F", "View_2_2_N"],
+            ["2_1_N_L", "View_2_1_W"],
+            ["2_1_N_R", "View_2_1_E"]
+          ]
+       },
+       {
+         "stateName": "View_2_1_E",
+         "transitions": [
+            ["2_1_E_L", "View_2_1_N"],
+            ["2_1_E_R", "View_2_1_S"]
+          ]
+       },
+       {
+         "stateName": "View_2_1_S",
+         "transitions": [
+            ["2_1_S_L", "View_2_1_E"],
+            ["2_1_S_R", "View_2_1_W"]
+          ]
+       },
+       {
+         "stateName": "View_2_1_W",
+         "transitions": [
+            ["2_1_W_F", "View_1_1_W"],
+            ["2_1_W_L", "View_2_1_S"],
+            ["2_1_W_R", "View_2_1_N"]
           ]
        }
       ]
