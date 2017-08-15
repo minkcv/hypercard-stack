@@ -43,7 +43,7 @@ function createWindow (setFullscreen) {
 	// Set up the native menu.
 	electron.Menu.setApplicationMenu(
 		electron.Menu.buildFromTemplate(
-			AppMenu.createMenuTemplate(handleMenuOpen, handleMenuSave, handleMenuLoad, handleFullscreen, isFullscreen)));
+			AppMenu.createMenuTemplate(false, handleMenuOpen, handleMenuSave, handleMenuLoad, handleFullscreen, isFullscreen)));
 
 	if (isFullscreen)
 		newWindow.setAutoHideMenuBar(true);
@@ -96,6 +96,12 @@ function handleMenuOpen()
 	
 	game = new Game(FileIO.openFile(filePaths[0]), mainWindow);
 	global.game = game; // How we pass things to the renderer process
+
+	// Update the menu.
+	electron.Menu.setApplicationMenu(
+		electron.Menu.buildFromTemplate(
+			AppMenu.createMenuTemplate(true, handleMenuOpen, handleMenuSave, handleMenuLoad, handleFullscreen, isFullscreen)));
+
 
 	// Reload the page
 	mainWindow.loadURL(url.format({
