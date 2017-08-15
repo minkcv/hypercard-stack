@@ -38,11 +38,13 @@ if (game)
             game.reRender();
         }
         link.className = 'link';
-        link.style.backgroundColor = 'red';
+        link.style.borderStyle = 'dashed';
+        link.style.borderWidth = '1px';
+        link.style.borderColor = 'red';
         link.style.left = l.position[0] * scale + 'px';
         link.style.top = l.position[1] * scale +  'px';
-        link.style.width = l.size[0] * scale + 'px';
-        link.style.height = l.size[1] * scale + 'px';
+        link.style.width = l.position[2] * scale + 'px';
+        link.style.height = l.position[3] * scale + 'px';
         viewContainer.appendChild(link);
     });
 }
