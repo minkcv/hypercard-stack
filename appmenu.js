@@ -1,19 +1,17 @@
 const electron = require('electron')
 
-module.exports.createMenuTemplate = function(handleOpen, handleSave, handleLoad, handleFullscreen, isFullscreen)
+module.exports.createMenuTemplate = function(gameLoaded, handleOpen, handleSave, handleLoad, handleFullscreen, isFullscreen)
 {
     let fullscreenLabel = 'Full Screen';
     if (isFullscreen)
         fullscreenLabel = 'Exit Full Screen';
 
-    return [
+    menuData = [
         {
             label: 'File',
             submenu:
             [
                 { click: handleOpen,        label: 'Open', accelerator: 'CommandOrControl+O' },
-                { click: handleSave,        label: 'Save', accelerator: 'CommandOrControl+S' },
-                { click: handleLoad,        label: 'Load', accelerator: 'CommandOrControl+L' },
                 { click: electron.app.quit, label: 'Exit', accelerator: 'CommandOrControl+Q' }
             ]
         },
@@ -26,4 +24,15 @@ module.exports.createMenuTemplate = function(handleOpen, handleSave, handleLoad,
             ]
         }
     ];
+
+    // Add the load/save commands if we've loaded a game already.
+    if (gameLoaded)
+    {
+        menuData[0]['submenu'].splice(1, 0,
+            { click: handleSave,        label: 'Save', accelerator: 'CommandOrControl+S' },
+            { click: handleLoad,        label: 'Load', accelerator: 'CommandOrControl+L' }
+        )
+    }
+
+    return menuData;
 }
