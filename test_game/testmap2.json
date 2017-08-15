@@ -105,7 +105,7 @@
        {
          "stateName": "View_2_2_S",
          "transitions": [
-            ["2_2_S_F", "View_2_1_S"],
+            ["2_1_S_F", "View_2_1_S"],
             ["2_2_S_L", "View_2_2_E"],
             ["2_2_S_R", "View_2_2_W"]
           ]
@@ -114,8 +114,8 @@
          "stateName": "View_2_2_W",
          "transitions": [
             ["2_2_W_F", "View_1_2_W"],
-            ["1_2_W_L", "View_2_2_S"],
-            ["1_2_W_R", "View_2_2_N"]
+            ["2_2_W_L", "View_2_2_S"],
+            ["2_2_W_R", "View_2_2_N"]
           ]
        },
        
@@ -406,8 +406,6 @@
       "transition": "1_1_W_R",
       "position": ["690", "10", "100", "580"]
     },
-    
-    
     {
       "name": "Link_1_2_E_F",
       "parentView": "View_1_2_E",
@@ -447,7 +445,7 @@
     {
       "name": "Link_1_2_S_L",
       "parentView": "View_1_2_S",
-      "transition": "1_2_E_S",
+      "transition": "1_2_S_L",
       "position": ["10", "10", "100", "580"]
     },
     {
@@ -509,7 +507,7 @@
     {
       "name": "Link_2_1_S_L",
       "parentView": "View_2_1_S",
-      "transition": "2_1_E_S",
+      "transition": "2_1_S_L",
       "position": ["10", "10", "100", "580"]
     },
     {
@@ -571,7 +569,7 @@
     {
       "name": "Link_2_2_S_L",
       "parentView": "View_2_2_S",
-      "transition": "2_2_E_S",
+      "transition": "2_2_S_L",
       "position": ["10", "10", "100", "580"]
     },
     {
