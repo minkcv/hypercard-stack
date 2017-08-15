@@ -43,7 +43,7 @@ function createWindow (setFullscreen) {
 	// Set up the native menu.
 	electron.Menu.setApplicationMenu(
 		electron.Menu.buildFromTemplate(
-			AppMenu.createMenuTemplate(handleMenuOpen, handleMenuSave, handleFullscreen, isFullscreen)));
+			AppMenu.createMenuTemplate(handleMenuOpen, handleMenuSave, handleMenuLoad, handleFullscreen, isFullscreen)));
 
 	if (isFullscreen)
 		newWindow.setAutoHideMenuBar(true);
@@ -84,9 +84,13 @@ function handleFullscreen()
 	game.window = mainWindow;
 }
 
+// File opening/loading/saving functions
+const stackFilter = [{name: 'Stack', extensions:['json']}]
+const saveFilter = [{name:'Save File', extensions:['json']}]
+
 function handleMenuOpen()
 {
-	let filePaths = dialog.showOpenDialog(mainWindow, {properties: ['openFile']});
+	let filePaths = dialog.showOpenDialog(mainWindow, {properties: ['openFile'], filters:stackFilter});
 	if (!filePaths || filePaths.length < 1)
 		return;
 	
@@ -103,5 +107,33 @@ function handleMenuOpen()
 
 function handleMenuSave()
 {
+	if (!game)
+		return;
 
+	let filePaths = dialog.showSaveDialog(mainWindow, {filters:saveFilter});
+	if (!filePaths || filePaths.length < 1)
+		return;
+
+	// Get the current game and set the correct state machine values.
+	FileIO.saveGame(game, filePaths)
+}
+
+function handleMenuLoad()
+{
+	if (!game)
+		return;
+
+	let filePaths = dialog.showOpenDialog(mainWindow, {properties: ['openFile'], filters:saveFilter});
+	if (!filePaths || filePaths.length < 1)
+		return;
+
+	// Load states from file into the current game.
+	FileIO.loadGame(game, filePaths[0])
+
+	// Reload the page
+	mainWindow.loadURL(url.format({
+		pathname: path.join(__dirname, 'index.html'),
+		protocol: 'file:',
+		slashes: true
+	}));
 }

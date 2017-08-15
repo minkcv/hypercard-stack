@@ -3,11 +3,47 @@ gameElements = require('./game_elements')
 
 exports.openFile = function (filepath)
 {
+    let json = loadJSONFile(filepath);
+    return loadNewGame(json);
+}
+
+exports.loadGame = function (game, filepath)
+{
+    let json = loadJSONFile(filepath);
+    loadSaveFile(game, json);
+}
+
+exports.saveGame = function (game, filepath)
+{
+    saveState = {}
+    saveState['__gamename'] = game.map.name
+
+    game.map.stateMachines.forEach(s => saveState[s.name] = s.currentState)
+    let data = JSON.stringify(saveState)
+    fs.writeFileSync(filepath, data)
+}
+
+function loadJSONFile(filepath)
+{
     if (filepath && filepath.length > 0)
     {
         let data = fs.readFileSync(filepath, null)
-        return loadNewGame(JSON.parse(data));
+        return JSON.parse(data)
     }
+}
+
+function loadSaveFile(game, json)
+{
+    if (json['__gamename'] != game.map.name)
+        throw new Error('save file does not match loaded stack!')
+
+    game.map.stateMachines.forEach(s => {
+        let state = json[s.name];
+        if (!state)
+            throw new Error('save file does not match loaded stack!')
+
+        s.currentState = state;
+    })
 }
 
 function loadNewGame(json)
