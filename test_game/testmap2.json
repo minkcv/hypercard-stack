@@ -385,7 +385,7 @@
     {
       "name": "Link_1_1_S_L",
       "parentView": "View_1_1_S",
-      "transition": "1_1_E_S",
+      "transition": "1_1_S_L",
       "position": ["10", "10", "100", "580"]
     },
     {
