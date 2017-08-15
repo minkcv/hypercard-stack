@@ -8,6 +8,7 @@ exports.Map = class
         this.name = name;
         this.locations = [];
         this.stateMachines = [];
+        this.controls = [];
         this.folderName = folderName;
     }
 
@@ -39,5 +40,10 @@ exports.Map = class
     GetStateMachine(name)
     {
         return this.stateMachines.find(s => s.name === name);
+    }
+
+    AddControl(control)
+    {
+        this.controls.push(control);
     }
 }

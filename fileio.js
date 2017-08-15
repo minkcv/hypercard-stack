@@ -74,11 +74,21 @@ function loadNewGame(json)
         let link = new gameElements.Link(linkData['name'], parentView, linkData['transition'], linkData['position']);
         parentView.AddLink(link);
     }
+    for (let i = 0; i < json['controls'].length; i++)
+    {
+        let controlData = json['controls'][i];
+        let parentView = map.GetView(controlData['parentView']);
+        let sm = map.GetStateMachine(controlData['stateMachine']);
+        let control = new gameElements.Control(controlData['name'], parentView, controlData['position'], sm, controlData['images']);
+        map.AddControl(control);
+    }
     console.log('=== MAP ===');
     console.log(map);
     console.log('=== VIEWS ===')
     map.locations.forEach(l => console.log(l.views));
     console.log('=== STATE MACHINES ===')
     console.log(map.stateMachines);
+    console.log('=== CONTROLS ===');
+    console.log(map.controls);
     return map;
 }

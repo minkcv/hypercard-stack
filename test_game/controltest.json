@@ -49,6 +49,7 @@
             "background": "location1/view1.png"
         }
     ],
+    "links":[],
     "controls": [
         {
             "name": "Lever 1 up control",
