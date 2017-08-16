@@ -7,6 +7,7 @@ exports.View = class
         this.name = name;
         this.parentLocation = parentLocation;
         this.links = [];
+        this.controls = [];
         this.background = background;
         this.imageSize = sizeOf(background);
     }
@@ -14,5 +15,10 @@ exports.View = class
     AddLink(link)
     {
         this.links.push(link);
+    }
+
+    AddControl(control)
+    {
+        this.controls.push(control);
     }
 }

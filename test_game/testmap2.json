@@ -528,8 +528,6 @@
       "transition": "2_1_W_R",
       "position": ["690", "10", "100", "580"]
     },
-    
-    
     {
       "name": "Link_2_2_S_F",
       "parentView": "View_2_2_S",
@@ -590,5 +588,6 @@
       "transition": "2_2_W_R",
       "position": ["690", "10", "100", "580"]
     }
-  ]
+  ],
+  "controls": []
 }
