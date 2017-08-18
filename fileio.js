@@ -49,11 +49,6 @@ function loadSaveFile(game, json)
 function loadNewGame(json)
 {
     let map = new gameElements.Map(json['mapName'], json['folderName']);
-    for (let i = 0; i < json['locations'].length; i++)
-    {
-        let loc = new gameElements.Location(json['locations'][i]['name']);
-        map.AddLocation(loc);
-    }
     for (let i = 0; i < json['stateMachines'].length; i++)
     {
         let smData = json['stateMachines'][i];
@@ -63,32 +58,30 @@ function loadNewGame(json)
     for (let i = 0; i < json['views'].length; i++)
     {
         let viewData = json['views'][i];
-        let parentLoc = map.GetLocation(viewData['parentLocation']);
-        let view = new gameElements.View(viewData['name'], parentLoc, map.folderName + viewData['background']);
-        parentLoc.AddView(view);
+        let view = new gameElements.View(viewData['name'], map.folderName + viewData['background']);
+        map.AddView(view);
     }
     for (let i = 0; i < json['links'].length; i++)
     {
         let linkData = json['links'][i];
         let parentView = map.GetView(linkData['parentView']);
-        let link = new gameElements.Link(linkData['name'], parentView, linkData['transition'], linkData['position']);
+        let sm = map.GetStateMachine(linkData['stateMachine']);
+        let link = new gameElements.Link(linkData['name'], parentView, sm, linkData['actions'], linkData['position']);
         parentView.AddLink(link);
     }
-    for (let i = 0; i < json['controls'].length; i++)
+    for (let i = 0; i < json['indicators'].length; i++)
     {
-        let controlData = json['controls'][i];
-        let parentView = map.GetView(controlData['parentView']);
-        let sm = map.GetStateMachine(controlData['stateMachine']);
-        let control = new gameElements.Control(controlData['name'], parentView, controlData['position'], sm, controlData['actions'], controlData['images']);
-        parentView.AddControl(control);
+        let iData = json['indicators'][i];
+        let parentView = map.GetView(iData['parentView']);
+        let sm = map.GetStateMachine(iData['stateMachine']);
+        let indicator = new gameElements.Indicator(iData['name'], parentView, sm, iData['images'], iData['position']);
+        parentView.AddIndicator(indicator);
     }
     console.log('=== MAP ===');
     console.log(map);
     console.log('=== VIEWS ===')
-    map.locations.forEach(l => console.log(l.views));
+    map.views.forEach(v => console.log(v));
     console.log('=== STATE MACHINES ===')
     console.log(map.stateMachines);
-    console.log('=== CONTROLS ===');
-    map.locations.forEach(l => l.views.forEach(v => console.log(v.controls)));
     return map;
 }

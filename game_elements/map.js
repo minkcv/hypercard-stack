@@ -1,34 +1,22 @@
-const Location = require('./location')
-const View = require('./view')
 
 exports.Map = class
 {
     constructor(name, folderName)
     {
         this.name = name;
-        this.locations = [];
+        this.views = [];
         this.stateMachines = [];
         this.folderName = folderName;
     }
 
-    AddLocation(location)
+    AddView(view)
     {
-        this.locations.push(location);
-    }
-
-    GetLocation(name)
-    {
-        return this.locations.find(l => l.name === name);
+        this.views.push(view);
     }
     
     GetView(name)
     {
-        for (let i = 0; i < this.locations.length; i++)
-        {
-            let view = this.locations[i].GetView(name);
-            if (view)
-                return view;
-        }
+        return this.views.find(v => v.name === name);
     }
 
     AddStateMachine(stateMachine)

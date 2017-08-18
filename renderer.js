@@ -34,7 +34,8 @@ if (game)
     view.links.forEach(l => {
         let link = document.createElement('div');
         link.onclick = () => {
-            game.map.GetStateMachine('player view').doTransition(l.transition);
+            // TODO get player hand item for action.
+            l.stateMachine.doTransition(l.actions['poke']);
             game.reRender();
         }
         link.className = 'link';
@@ -47,23 +48,14 @@ if (game)
         link.style.height = l.position[3] * scale + 'px';
         viewContainer.appendChild(link);
     });
-    console.log(game.map.GetStateMachine('Lever 1 SM').currentState);
-    view.controls.forEach(c => {
-        let con = document.createElement('img');
-        con.src = game.map.folderName + c.images.find(i => i['state'] === game.map.GetStateMachine(i['stateMachine']).currentState)['image'];
-        con.onclick = () => {
-            // TODO get player hand item for action.
-            c.stateMachine.doTransition(c.actions['poke'])
-            game.reRender();
-        }
-        con.className = 'control';
-        con.style.borderStyle = 'dashed';
-        con.style.borderWidth = '1px';
-        con.style.borderColor = 'red';
-        con.style.left = c.position[0] * scale + 'px';
-        con.style.top = c.position[1] * scale +  'px';
-        con.style.width = c.position[2] * scale + 'px';
-        con.style.height = c.position[3] * scale + 'px';
-        viewContainer.appendChild(con);
+    view.indicators.forEach(i => {
+        let ind = document.createElement('img');
+        ind.src = game.map.folderName + i.images[i.stateMachine.currentState];
+        ind.className = 'indicator';
+        ind.style.left = i.position[0] * scale + 'px';
+        ind.style.top = i.position[1] * scale +  'px';
+        ind.style.width = i.position[2] * scale + 'px';
+        ind.style.height = i.position[3] * scale + 'px';
+        viewContainer.appendChild(ind);
     });
 }
