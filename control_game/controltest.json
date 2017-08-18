@@ -44,19 +44,9 @@
             ]
         }
     ],
-    "locations": [
-        {
-            "name": "Location 1 1",
-            "views":
-            [
-                "View_1_1_N"
-            ]
-        }
-    ],
     "views": [
         {
             "name": "View_1_1_N",
-            "parentLocation": "Location 1 1",
             "links": [],
             "controls": [
                 "Lever 1",
@@ -65,88 +55,50 @@
             "background": "view1.png"
         }
     ],
-    "links":[],
-    "controls": [
+    "links": [
         {
-            "name": "Lever 1 up control",
+            "name": "Lever 1 up link",
             "parentView": "View_1_1_N",
             "stateMachine": "Lever 1 SM",
             "actions": 
             {
                 "poke": "click up"
             },
-            "position": ["10", "10", "50", "50"],
-            "images": [
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "up",
-                    "image": "lever-up-on.png"
-                },
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "middle",
-                    "image": "lever-up-off.png"
-                },
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "down",
-                    "image": "lever-up-off.png"
-                }
-            ]
+            "position": ["10", "10", "50", "50"]
         },
         {
-            "name": "Lever 1 middle control",
+            "name": "Lever 1 middle link",
             "parentView": "View_1_1_N",
             "stateMachine": "Lever 1 SM",
             "actions": 
             {
                 "poke": "click middle"
             },
-            "position": ["10", "60", "50", "50"],
-            "images": [
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "up",
-                    "image": "lever-middle-off.png"
-                },
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "middle",
-                    "image": "lever-middle-on.png"
-                },
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "down",
-                    "image": "lever-middle-off.png"
-                }
-            ]
+            "position": ["10", "60", "50", "50"]
         },
         {
-            "name": "Lever 1 down control",
+            "name": "Lever 1 down link",
             "parentView": "View_1_1_N",
             "stateMachine": "Lever 1 SM",
             "actions": 
             {
                 "poke": "click down"
             },
-            "position": ["10", "110", "50", "50"],
-            "images": [
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "up",
-                    "image": "lever-down-off.png"
-                },
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "middle",
-                    "image": "lever-down-off.png"
-                },
-                {
-                    "stateMachine": "Lever 1 SM",
-                    "state": "down",
-                    "image": "lever-down-on.png"
-                }
-            ]
+            "position": ["10", "110", "50", "50"]
+        }
+    ],
+    "indicators": [
+        {
+            "name": "Lever 1 indicator",
+            "parentView": "View_1_1_N",
+            "stateMachine": "Lever 1 SM",
+            "images": 
+            {
+                "up": "up.png",
+                "middle": "middle.png",
+                "down": "down.png"
+            },
+            "position": ["10", "10", "50", "50"]
         }
     ]
 }

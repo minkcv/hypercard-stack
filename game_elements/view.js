@@ -2,12 +2,11 @@ const sizeOf = require('image-size');
 
 exports.View = class
 {
-    constructor(name, parentLocation, background)
+    constructor(name, background)
     {
         this.name = name;
-        this.parentLocation = parentLocation;
         this.links = [];
-        this.controls = [];
+        this.indicators = [];
         this.background = background;
         this.imageSize = sizeOf(background);
     }
@@ -17,8 +16,8 @@ exports.View = class
         this.links.push(link);
     }
 
-    AddControl(control)
+    AddIndicator(indicator)
     {
-        this.controls.push(control);
+        this.indicators.push(indicator);
     }
 }
