@@ -31,6 +31,16 @@ if (game)
     }
 
     let viewContainer = document.getElementById('view-container');
+    view.indicators.forEach(i => {
+        let ind = document.createElement('img');
+        ind.src = game.map.folderName + i.images[i.stateMachine.currentState];
+        ind.className = 'indicator';
+        ind.style.left = i.position[0] * scale + 'px';
+        ind.style.top = i.position[1] * scale +  'px';
+        ind.style.width = i.position[2] * scale + 'px';
+        ind.style.height = i.position[3] * scale + 'px';
+        viewContainer.appendChild(ind);
+    });
     view.links.forEach(l => {
         let link = document.createElement('div');
         link.onclick = () => {
@@ -47,15 +57,5 @@ if (game)
         link.style.width = l.position[2] * scale + 'px';
         link.style.height = l.position[3] * scale + 'px';
         viewContainer.appendChild(link);
-    });
-    view.indicators.forEach(i => {
-        let ind = document.createElement('img');
-        ind.src = game.map.folderName + i.images[i.stateMachine.currentState];
-        ind.className = 'indicator';
-        ind.style.left = i.position[0] * scale + 'px';
-        ind.style.top = i.position[1] * scale +  'px';
-        ind.style.width = i.position[2] * scale + 'px';
-        ind.style.height = i.position[3] * scale + 'px';
-        viewContainer.appendChild(ind);
     });
 }

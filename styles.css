@@ -3,7 +3,7 @@ body {
     overflow: hidden;
 }
 
-.link, .control{
+.link, .indicator{
     position: absolute;
 }
 
