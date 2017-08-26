@@ -32,11 +32,11 @@ if (game)
 
     let viewContainer = document.getElementById('view-container');
     view.indicators.forEach(i => {
-		let ind = document.createElement('img');
-		
-		// [image name, x,y,w,h]
-		let imagepos = i.imagepos[i.stateMachine.currentState];
-		ind.src = game.map.folderName + imagepos[0];
+        let ind = document.createElement('img');
+        
+        // [image name, x,y,w,h]
+        let imagepos = i.imagepos[i.stateMachine.currentState];
+        ind.src = game.map.folderName + imagepos[0];
         ind.className = 'indicator';
         ind.style.left = imagepos[1] * scale + 'px';
         ind.style.top = imagepos[2] * scale +  'px';
