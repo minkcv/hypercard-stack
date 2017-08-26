@@ -87,13 +87,12 @@
             "name": "Lever 1 indicator",
             "parentView": "View_1_1_N",
             "stateMachine": "Lever 1 SM",
-            "images": 
+            "images":
             {
-                "up": "lever-up.png",
-                "middle": "lever-middle.png",
-                "down": "lever-down.png"
-            },
-            "position": ["10", "10", "50", "150"]
+                "up": ["lever-up.png", "10", "10", "50", "150"],
+                "middle": ["lever-middle.png", "10", "10", "50", "150"],
+                "down": ["lever-down.png", "10", "10", "50", "150"]
+            }
         }
     ]
 }

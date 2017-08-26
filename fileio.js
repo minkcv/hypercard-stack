@@ -74,7 +74,7 @@ function loadNewGame(json)
         let iData = json['indicators'][i];
         let parentView = map.GetView(iData['parentView']);
         let sm = map.GetStateMachine(iData['stateMachine']);
-        let indicator = new gameElements.Indicator(iData['name'], parentView, sm, iData['images'], iData['position']);
+        let indicator = new gameElements.Indicator(iData['name'], parentView, sm, iData['images']);
         parentView.AddIndicator(indicator);
     }
     console.log('=== MAP ===');
