@@ -1,12 +1,11 @@
 
 exports.Indicator = class
 {
-    constructor(name, parentView, stateMachine, images, position)
+    constructor(name, parentView, stateMachine, imagepos)
     {
         this.name = name;
         this.parentView = parentView;
         this.stateMachine = stateMachine;
-        this.images = images;
-        this.position = position;
+        this.imagepos = imagepos;
     }
 }

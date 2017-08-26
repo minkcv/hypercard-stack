@@ -32,13 +32,16 @@ if (game)
 
     let viewContainer = document.getElementById('view-container');
     view.indicators.forEach(i => {
-        let ind = document.createElement('img');
-        ind.src = game.map.folderName + i.images[i.stateMachine.currentState];
+		let ind = document.createElement('img');
+		
+		// [image name, x,y,w,h]
+		let imagepos = i.imagepos[i.stateMachine.currentState];
+		ind.src = game.map.folderName + imagepos[0];
         ind.className = 'indicator';
-        ind.style.left = i.position[0] * scale + 'px';
-        ind.style.top = i.position[1] * scale +  'px';
-        ind.style.width = i.position[2] * scale + 'px';
-        ind.style.height = i.position[3] * scale + 'px';
+        ind.style.left = imagepos[1] * scale + 'px';
+        ind.style.top = imagepos[2] * scale +  'px';
+        ind.style.width = imagepos[3] * scale + 'px';
+        ind.style.height = imagepos[4] * scale + 'px';
         viewContainer.appendChild(ind);
     });
     view.links.forEach(l => {
